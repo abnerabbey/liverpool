@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol HistoryViewControllerDelegate: class {
+    func didSelectOption(option: String)
+}
+
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var historyTableView: UITableView!
     var arrayHistory = [String]()
+    weak var delegate: HistoryViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.didSelectOption(option: arrayHistory[indexPath.row])
+        dismiss(animated: true, completion: nil)
     }
     
     func setupUI() {

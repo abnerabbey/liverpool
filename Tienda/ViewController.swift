@@ -30,7 +30,8 @@ class ViewController: UIViewController {
     }
     
     @objc func toHistoryView() {
-        guard let nextView = self.storyboard?.instantiateViewController(withIdentifier: "history") else { return }
+        guard let nextView = self.storyboard?.instantiateViewController(withIdentifier: "history") as? HistoryViewController else { return }
+        nextView.delegate = self
         let nv = UINavigationController(rootViewController: nextView)
         present(nv, animated: true, completion: nil)
     }
@@ -54,6 +55,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return 0
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Resultados de: \(searchString)"
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let item = productViewModel?.sections[indexPath.section] as? ProductsViewModelResultItem, let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ProductCell else {
             return UITableViewCell()
@@ -68,7 +73,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension ViewController: UISearchBarDelegate, HistoryViewControllerDelegate {
     //MARK: Search Bar Delegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if var arrayHistory = UserDefaults.standard.stringArray(forKey: "history") {
@@ -78,6 +83,21 @@ extension ViewController: UISearchBarDelegate {
             let arrayHistory = [searchString]
             UserDefaults.standard.set(arrayHistory, forKey: "history")
         }
+        performSearch()
+        view.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchString = searchText
+    }
+    
+    func didSelectOption(option: String) {
+        searchString = option
+        searchProductBar.text = String()
+        performSearch()
+    }
+    
+    func performSearch() {
         let manager = ServiceManager()
         manager.requestData(fromSearch: searchString) { (data) in
             guard let data = data else { return }
@@ -86,14 +106,5 @@ extension ViewController: UISearchBarDelegate {
                 self.searchTableView.reloadData()
             }
         }
-        view.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchString = searchText
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
     }
 }
