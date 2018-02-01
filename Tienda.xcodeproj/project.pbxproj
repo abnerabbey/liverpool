@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		4889806620237A6E003F5840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889806520237A6E003F5840 /* AppDelegate.swift */; };
-		4889806820237A6E003F5840 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889806720237A6E003F5840 /* ViewController.swift */; };
 		4889806B20237A6E003F5840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4889806920237A6E003F5840 /* Main.storyboard */; };
 		4889806D20237A6E003F5840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4889806C20237A6E003F5840 /* Assets.xcassets */; };
 		4889807020237A6E003F5840 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4889806E20237A6E003F5840 /* LaunchScreen.storyboard */; };
 		4889807B20237A6E003F5840 /* TiendaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889807A20237A6E003F5840 /* TiendaTests.swift */; };
 		4889808620237A6E003F5840 /* TiendaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889808520237A6E003F5840 /* TiendaUITests.swift */; };
+		4889809420237AD7003F5840 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889809320237AD6003F5840 /* ProductModel.swift */; };
+		4889809620237AE9003F5840 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889809520237AE9003F5840 /* ServiceManager.swift */; };
+		4889809820237AFA003F5840 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889809720237AFA003F5840 /* ProductCell.swift */; };
+		4889809A20237B0F003F5840 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889809920237B0F003F5840 /* ViewController.swift */; };
+		4889809C20237D8D003F5840 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889809B20237D8D003F5840 /* ProductViewModel.swift */; };
+		4889809E2023982D003F5840 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4889809D2023982D003F5840 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,6 @@
 /* Begin PBXFileReference section */
 		4889806220237A6E003F5840 /* Tienda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tienda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4889806520237A6E003F5840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4889806720237A6E003F5840 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4889806A20237A6E003F5840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4889806C20237A6E003F5840 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4889806F20237A6E003F5840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,12 @@
 		4889808120237A6E003F5840 /* TiendaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TiendaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4889808520237A6E003F5840 /* TiendaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiendaUITests.swift; sourceTree = "<group>"; };
 		4889808720237A6E003F5840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4889809320237AD6003F5840 /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		4889809520237AE9003F5840 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		4889809720237AFA003F5840 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		4889809920237B0F003F5840 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4889809B20237D8D003F5840 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		4889809D2023982D003F5840 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +107,14 @@
 		4889806420237A6E003F5840 /* Tienda */ = {
 			isa = PBXGroup;
 			children = (
+				4889809720237AFA003F5840 /* ProductCell.swift */,
 				4889806520237A6E003F5840 /* AppDelegate.swift */,
-				4889806720237A6E003F5840 /* ViewController.swift */,
+				4889809320237AD6003F5840 /* ProductModel.swift */,
+				4889809B20237D8D003F5840 /* ProductViewModel.swift */,
+				4889809520237AE9003F5840 /* ServiceManager.swift */,
+				4889809920237B0F003F5840 /* ViewController.swift */,
 				4889806920237A6E003F5840 /* Main.storyboard */,
+				4889809D2023982D003F5840 /* HistoryViewController.swift */,
 				4889806C20237A6E003F5840 /* Assets.xcassets */,
 				4889806E20237A6E003F5840 /* LaunchScreen.storyboard */,
 				4889807120237A6E003F5840 /* Info.plist */,
@@ -259,8 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4889806820237A6E003F5840 /* ViewController.swift in Sources */,
+				4889809A20237B0F003F5840 /* ViewController.swift in Sources */,
+				4889809420237AD7003F5840 /* ProductModel.swift in Sources */,
+				4889809C20237D8D003F5840 /* ProductViewModel.swift in Sources */,
+				4889809820237AFA003F5840 /* ProductCell.swift in Sources */,
 				4889806620237A6E003F5840 /* AppDelegate.swift in Sources */,
+				4889809E2023982D003F5840 /* HistoryViewController.swift in Sources */,
+				4889809620237AE9003F5840 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
